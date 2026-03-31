@@ -21,7 +21,7 @@ pilha_t* criar_pilha(int capacidade) {
 
   return pilha;
 }
-int empilhar(pilha_t* pilha, int valor) {
+int empilhar_pilha(pilha_t* pilha, int valor) {
 
   if (pilha->topo >= pilha->capacidade) {
     pilha->capacidade *= 2;
@@ -32,7 +32,7 @@ int empilhar(pilha_t* pilha, int valor) {
 
   return 0;
 }
-int desempilhar(pilha_t* pilha) {
+int desempilhar_pilha(pilha_t* pilha) {
 
  if (pilha->topo < 0) {
    EXIT_FAILURE;
@@ -42,12 +42,12 @@ int desempilhar(pilha_t* pilha) {
 
   return valor;
 }
-int tamanho(pilha_t* pilha) {
+int tamanho_pilha(pilha_t* pilha) {
   int n = pilha->capacidade;
   return n;
 }
 
-int vazia(pilha_t* pilha) {
+int vazia_pilha(pilha_t* pilha) {
   return pilha->topo < 0;
 }
 int destruir_pilha(pilha_t* pilha) {
