@@ -23,4 +23,6 @@ int destruir_fila(fila_t* fila);
 /* == LISTA  == */
 typedef struct lista lista_t;
 lista_t* criar_lista (int capacidade, bool ordenada);
+void adicionar_a_lista(lista_t* lista, int valor);
+
 #endif
