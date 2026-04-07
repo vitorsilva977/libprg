@@ -19,4 +19,8 @@ int fim_fila(fila_t* fila);
 int vazia_fila(fila_t* fila);
 int cheia_fila(fila_t* fila);
 int destruir_fila(fila_t* fila);
+
+/* == LISTA  == */
+typedef struct lista lista_t;
+lista_t* criar_lista (int capacidade, bool ordenada);
 #endif
