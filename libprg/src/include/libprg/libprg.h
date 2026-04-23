@@ -17,6 +17,7 @@ int desenfileirar_fila(fila_t* fila);
 int inicio_fila(fila_t* fila);
 int fim_fila(fila_t* fila);
 int vazia_fila(fila_t* fila);
+int tamanho_fila(fila_t* fila);
 int cheia_fila(fila_t* fila);
 int destruir_fila(fila_t* fila);
 

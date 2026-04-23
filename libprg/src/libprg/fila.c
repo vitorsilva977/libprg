@@ -63,6 +63,10 @@ int fim_fila(fila_t* fila) {
 int vazia_fila(fila_t* fila) {
     if ( fila->tamanho == 0) return 1;
 }
+int tamanho_fila(fila_t* fila) {
+    int tamanho_fila = fila->tamanho;
+    return tamanho_fila;
+}
 int cheia_fila(fila_t* fila) {
     if ( fila->tamanho == fila->capacidade) return 1;
 }
