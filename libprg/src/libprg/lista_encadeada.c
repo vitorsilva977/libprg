@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdbool.h>
 #include "libprg/libprg.h"
 
 typedef struct no {
@@ -18,7 +19,43 @@ void inserir_encadeada(no_t** inicio, int dado) {
     novo->proximo = *inicio;
     *inicio = novo;
 }
+bool remover_encadeada(no_t** inicio, int dado) {
 
-//remover
-//buscar
-//destruir
+    no_t* atual = *inicio;
+    no_t* anterior = NULL;
+
+    while (atual != NULL) {
+        if (atual->dado == dado) {
+            if (anterior == NULL) *inicio = atual->proximo;
+            else anterior->proximo = atual->proximo;
+
+            free(atual);
+            return true;
+        }
+        anterior = atual;
+        atual = atual->proximo;
+
+    }
+    return false;
+}
+
+no_t* buscar_encadeada(no_t** inicio, int dado) {
+    no_t* atual = *inicio;
+
+    while (atual != NULL) {
+        if (atual->dado == dado) return atual;
+        atual = atual->proximo;
+    }
+   return atual;
+}
+
+void destruir_encadeada(no_t** inicio) {
+
+    no_t* atual = *inicio;
+
+    while (atual != NULL) {
+        no_t* proximo = atual->proximo;
+        free(atual);
+        atual = proximo;
+    }
+}

@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #ifndef LIBPRG_LIBPRG_H
 #define LIBPRG_LIBPRG_H
 /*  === PILHA ===*/
@@ -25,5 +26,12 @@ int destruir_fila(fila_t* fila);
 // typedef struct lista lista_t;
 // lista_t* criar_lista (bool ordenada);
 
+/*   == LISTA_ENCADEADA == */
 
+typedef struct no no_t;
+no_t* criar_lista_encadeada(int dado);
+void inserir_encadeada(no_t** inicio, int dado);
+bool remover_encadeada(no_t** inicio, int dado);
+no_t* buscar_encadeada(no_t** inicio, int dado);
+void destruir_encadeada(no_t** inicio);
 #endif
