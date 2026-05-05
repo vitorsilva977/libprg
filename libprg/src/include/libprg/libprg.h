@@ -27,11 +27,19 @@ int destruir_fila(fila_t* fila);
 // lista_t* criar_lista (bool ordenada);
 
 /*   == LISTA_ENCADEADA == */
-
 typedef struct no no_t;
-no_t* criar_lista_encadeada(int dado);
-void inserir_encadeada(no_t** inicio, int dado);
-bool remover_encadeada(no_t** inicio, int dado);
-no_t* buscar_encadeada(no_t** inicio, int dado);
-void destruir_encadeada(no_t** inicio);
+typedef struct lista_encadeada lista_encadeada_t;
+no_t* criar_no(int dado);
+lista_encadeada_t* criar_lista_encadeada(bool* ordenada);
+void inserir_encadeada(lista_encadeada_t* lista, int dado);
+bool remover_encadeada(lista_encadeada_t* lista, int dado);
+no_t* buscar_encadeada(lista_encadeada_t* lista, int dado);
+void destruir_encadeada(lista_encadeada_t* lista);
+
+/* == LISTA_ENCADEADA_DUPLA == */
+typedef struct nod nod_t;
+bool remover_encadeada_dupla(nod_t** inicio, int dado);
+void *destruir_encadeada_dupla(nod_t** inicio, int dado);
+
+
 #endif
