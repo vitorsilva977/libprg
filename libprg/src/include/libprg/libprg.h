@@ -41,5 +41,7 @@ typedef struct nod nod_t;
 bool remover_encadeada_dupla(nod_t** inicio, int dado);
 void *destruir_encadeada_dupla(nod_t** inicio, int dado);
 
+/*  == ALGORITMOS DE ORDENAÇÃO == */
+int* bubble_sort(int* vetor, int tamanho);
 
 #endif
