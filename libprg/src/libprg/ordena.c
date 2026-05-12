@@ -17,3 +17,13 @@ return vetor;
 
 //insertion_sort
 //selection_sort
+int* merge_sort(int* vetor, int esquerda, int direita) {
+    if (esquerda < direita) {
+        int menor = esquerda + (direita - esquerda) / 2;
+        merge_sort(vetor, esquerda, meio);
+        merge_sort(vetor, meio + 1, direita);
+        merge_sort(vetor, esquerda, m)
+    }
+}
+int* merge(int* veitor, int esquerda,int meio, int direita)
+//quicksort
