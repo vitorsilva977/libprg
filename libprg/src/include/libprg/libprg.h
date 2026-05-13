@@ -45,4 +45,6 @@ void *destruir_encadeada_dupla(nod_t** inicio, int dado);
 int* bubble_sort(int* vetor, int tamanho);
 int* merge_sort(int* vetor, int esquerda, int direita);
 int* merge(int* veitor, int esquerda,int meio, int direita);
+int particiona(int* vetor, int inicio, int fim);
+int* quicksort(int* vetor, int inicio, int fim);
 #endif
