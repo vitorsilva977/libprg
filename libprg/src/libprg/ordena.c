@@ -1,6 +1,6 @@
 #include "libprg/libprg.h"
 
-int* bubble_sort(int* vetor, int tamanho) {
+int *bubble_sort(int *vetor, int tamanho) {
     int aux = 0;
     for (int i = 0; i < tamanho; ++i) {
         for (int j = 0; j < tamanho - i - 1; ++j) {
@@ -11,23 +11,23 @@ int* bubble_sort(int* vetor, int tamanho) {
             }
         }
     }
-return vetor;
+    return vetor;
 }
 
 
-int* insertion_sort(int* vetor) {
+int *insertion_sort(int *vetor) {
     int i;
     int n;
     int j;
-    for (i = 1;i <= n -1; i++) {
+    for (i = 1; i <= n - 1; i++) {
         int chave = vetor[i];
-        j = i +1;
-        while ( j >= 0);
+        j = i + 1;
+        while (j >= 0);
     }
-
 }
+
 //selection_sort
-int* merge_sort(int* vetor, int esquerda, int direita) {
+int *merge_sort(int *vetor, int esquerda, int direita) {
     if (esquerda < direita) {
         int meio = esquerda + (direita - esquerda) / 2;
         merge_sort(vetor, esquerda, meio);
@@ -35,8 +35,8 @@ int* merge_sort(int* vetor, int esquerda, int direita) {
         merge_sort(vetor, esquerda, meio);
     }
 }
-int* merge(int* vetor, int esquerda, int meio, int direita) {
 
+int *merge(int *vetor, int esquerda, int meio, int direita) {
     int aux[direita - esquerda + 1];
 
     int i = esquerda;
@@ -44,11 +44,9 @@ int* merge(int* vetor, int esquerda, int meio, int direita) {
     int k = 0;
 
     while (i <= meio && j <= direita) {
-
         if (vetor[i] <= vetor[j]) {
             aux[k] = vetor[i];
             i = i + 1;
-
         } else {
             aux[k] = vetor[j];
             j = j + 1;
@@ -75,17 +73,14 @@ int* merge(int* vetor, int esquerda, int meio, int direita) {
 
     return vetor;
 }
-#include <stdio.h>
-#include <stdio.h>
+
 
 void troca_posicao(int *i, int *i1);
 
-int* quicksort(int* vetor, int inicio, int fim) {
-
+int *quicksort(int *vetor, int inicio, int fim) {
     int pivo;
 
     if (inicio < fim) {
-
         pivo = particiona(vetor, inicio, fim);
 
         quicksort(vetor, inicio, pivo - 1);
@@ -96,8 +91,7 @@ int* quicksort(int* vetor, int inicio, int fim) {
     return vetor;
 }
 
-int particiona(int* vetor, int inicio, int fim) {
-
+int particiona(int *vetor, int inicio, int fim) {
     int pivo;
     int j;
 
@@ -106,9 +100,7 @@ int particiona(int* vetor, int inicio, int fim) {
     int i = inicio - 1;
 
     for (j = inicio; j <= fim - 1; j++) {
-
         if (vetor[j] <= pivo) {
-
             i = i + 1;
 
             troca_posicao(&vetor[i], &vetor[j]);
@@ -123,7 +115,6 @@ int particiona(int* vetor, int inicio, int fim) {
 }
 
 void troca_posicao(int *i, int *i1) {
-
     int aux;
 
     aux = *i;
