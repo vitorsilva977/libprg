@@ -23,8 +23,14 @@ int cheia_fila(fila_t* fila);
 int destruir_fila(fila_t* fila);
 
 // /* == LISTA  == */
-// typedef struct lista lista_t;
-// lista_t* criar_lista (bool ordenada);
+ typedef struct lista lista_t;
+ lista_t* criar_lista (bool ordenada);
+bool inserir(lista_t *lista, int elementos);
+int remover(lista_t *lista);
+int buscar(lista_t *lista, int elementos);
+int alterar(lista_t *lista, int elementoAntigo, int elementoNovo);
+int ordenar(lista_t *lista);
+
 
 /*   == LISTA_ENCADEADA == */
 typedef struct no no_t;
