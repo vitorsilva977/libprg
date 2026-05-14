@@ -53,4 +53,8 @@ int* merge_sort(int* vetor, int esquerda, int direita);
 int* merge(int* veitor, int esquerda,int meio, int direita);
 int particiona(int* vetor, int inicio, int fim);
 int* quicksort(int* vetor, int inicio, int fim);
+/*   == TABELA DE DISPERÇÃO ==   */
+typedef struct noh noh_t;
+typedef struct dicionario dicionario_t;
+int inserir_hash(dicionario_t* d, char *chave, int valor);
 #endif
