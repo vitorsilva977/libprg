@@ -57,4 +57,9 @@ int* quicksort(int* vetor, int inicio, int fim);
 typedef struct noh noh_t;
 typedef struct dicionario dicionario_t;
 int inserir_hash(dicionario_t* d, char *chave, int valor);
+
+/*  == ARVORE == */
+typedef struct no_arvore no_arvore_t;
+no_arvore_t* criar_no_arvore(int dado);
+no_arvore_t* adicionar_no_arvore(no_arvore_t* raiz, int dado);
 #endif
