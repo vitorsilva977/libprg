@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "libprg/libprg.h"
@@ -36,3 +37,12 @@ no_arvore_t *adicionar_no_arvore(no_arvore_t *raiz, int dado) {
 
 //remover
 //destruir
+void travessia_emordem(no_arvore_t *raiz) {
+    if (raiz !=NULL) {
+        travessia_emordem(raiz->esquerda);
+        printf("%d ",raiz->dado);
+        travessia_emordem(raiz->direita);
+    }
+}
+//travessia_emordem
+//travessia_posordem

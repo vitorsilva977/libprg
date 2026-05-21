@@ -62,4 +62,5 @@ int inserir_hash(dicionario_t* d, char *chave, int valor);
 typedef struct no_arvore no_arvore_t;
 no_arvore_t* criar_no_arvore(int dado);
 no_arvore_t* adicionar_no_arvore(no_arvore_t* raiz, int dado);
+void travessia_emordem(no_arvore_t *raiz);
 #endif
