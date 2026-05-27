@@ -1,8 +1,6 @@
 //
 // Created by aluno on 26/03/2026.
 //
-
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "libprg/libprg.h"
