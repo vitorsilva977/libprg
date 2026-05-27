@@ -45,9 +45,27 @@ int inserir_hash(dicionario_t *d, char *chave, int valor) {
     }
 
     no->valor = valor;
-    // TODO tratar colisões
+
     no->proximo = NULL;
 
     d->vetor[indice] = no;
     return 0;
+}
+
+int buscar_hash(dicionario_t *d, char *chave) {
+
+    int indice = hash(chave, d->tamanho);
+
+    noh_t *atual = d->vetor[indice];
+
+    while (atual != NULL) {
+
+        if (strcmp(atual->chave, chave) == 0) {
+            return atual->valor;
+        }
+
+        atual = atual->proximo;
+    }
+
+    return -1;
 }
