@@ -98,3 +98,24 @@ void remover_hash(dicionario_t *d, char *chave) {
         atual = atual->proximo;
     }
 }
+
+void liberar_dicionario(dicionario_t *d) {
+
+    for (int i = 0; i < d->tamanho; i++) {
+
+        noh_t *atual = d->vetor[i];
+
+        while (atual != NULL) {
+
+            noh_t *temp = atual;
+
+            atual = atual->proximo;
+
+            free(temp->chave);
+            free(temp);
+        }
+    }
+
+    free(d->vetor);
+    free(d);
+}
