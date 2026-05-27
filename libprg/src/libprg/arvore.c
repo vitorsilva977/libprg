@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "libprg/libprg.h"
 
 typedef struct no_arvore {
