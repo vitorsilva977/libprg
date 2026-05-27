@@ -14,7 +14,22 @@ typedef struct nod {
 nod_t* criar_encadeada_dupla(nod_t** inicio, int dado) {
 
 }
-//inserir
+
+void inserir_inicio(nod_t **lista, int valor) {
+
+    nod_t *novo = malloc(sizeof(nod_t));
+
+    novo->dado = valor;
+    novo->anterior = NULL;
+    novo->proximo = *lista;
+
+    if (*lista != NULL) {
+        (*lista)->anterior = novo;
+    }
+
+    *lista = novo;
+}
+
 bool remover_encadeada_dupla(nod_t** inicio, int dado) {
 nod_t* atual = *inicio;
 
