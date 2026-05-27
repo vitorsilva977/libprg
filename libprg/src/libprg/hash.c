@@ -69,3 +69,32 @@ int buscar_hash(dicionario_t *d, char *chave) {
 
     return -1;
 }
+
+
+void remover_hash(dicionario_t *d, char *chave) {
+
+    int indice = hash(chave, d->tamanho);
+
+    noh_t *atual = d->vetor[indice];
+    noh_t *anterior = NULL;
+
+    while (atual != NULL) {
+
+        if (strcmp(atual->chave, chave) == 0) {
+
+            if (anterior == NULL) {
+                d->vetor[indice] = atual->proximo;
+            } else {
+                anterior->proximo = atual->proximo;
+            }
+
+            free(atual->chave);
+            free(atual);
+
+            return;
+        }
+
+        anterior = atual;
+        atual = atual->proximo;
+    }
+}
