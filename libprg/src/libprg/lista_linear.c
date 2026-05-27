@@ -42,7 +42,7 @@ int remover(lista_t *lista) {
     return true;
 }
 
-int buscar(lista_t *lista, int elementos) {
+int busca_linear(lista_t *lista, int elementos) {
     if (lista->ordenada) {
         for (int i = 0; i < lista->tamanho; i++) {
             if (lista->elementos[i] == elementos) {
@@ -61,12 +61,35 @@ int buscar(lista_t *lista, int elementos) {
     }
     return -1;
 }
+
+int busca_binaria(lista_t *lista, int elemento) {
+    if (lista == NULL || lista->tamanho == 0) {
+        return -1;
+    }
+
+    int inicio = 0;
+    int fim = lista->tamanho - 1;
+
+    while (inicio <= fim) {
+        int meio = (inicio + fim) / 2;
+
+        if (lista->elementos[meio] == elemento) {
+            return meio;
+        }
+
+        if (lista->elementos[meio] < elemento) {
+            inicio = meio + 1;
+        } else {
+            fim = meio - 1;
+        }
+    }
+
+    return -1;
+}
+
 int alterar(lista_t *lista, int elementoAntigo, int elementoNovo) {
-
     if (lista->ordenada) {
-
         for (int i = 0; i < lista->tamanho; i++) {
-
             if (lista->elementos[i] == elementoAntigo) {
                 lista->elementos[i] = elementoNovo;
                 return true;
@@ -76,11 +99,8 @@ int alterar(lista_t *lista, int elementoAntigo, int elementoNovo) {
                 return false;
             }
         }
-
     } else {
-
         for (int i = 0; i < lista->tamanho; i++) {
-
             if (lista->elementos[i] == elementoAntigo) {
                 lista->elementos[i] = elementoNovo;
                 return true;
@@ -90,15 +110,6 @@ int alterar(lista_t *lista, int elementoAntigo, int elementoNovo) {
 
     return false;
 }
-
-
-
-//busca_binario
-// } else {
-//     indice = busca_linear
-// }
-// busca_linear
-//busca_binario
 
 int ordenar(lista_t *lista) {
     for (int i = 0; i < lista->tamanho - 1; i++) {
@@ -112,8 +123,33 @@ int ordenar(lista_t *lista) {
     }
     return 1;
 }
-//combinar
-//destruir
+
+lista_t *combinar(lista_t *a, lista_t *b) {
+    lista_t *nova = malloc(sizeof(lista_t));
+
+    nova->tamanho = a->tamanho + b->tamanho;
+    nova->capacidade = nova->tamanho;
+    nova->ordenada = a->ordenada && b->ordenada;
+
+    nova->elementos = malloc(sizeof(int) * nova->capacidade);
+
+    int k = 0;
+
+    for (int i = 0; i < a->tamanho; i++) {
+        nova->elementos[k++] = a->elementos[i];
+    }
 
 
-//TODO implementar buscar_linear e buscar_binario
+    for (int i = 0; i < b->tamanho; i++) {
+        nova->elementos[k++] = b->elementos[i];
+    }
+
+    return nova;
+}
+
+void destruir(lista_t *lista) {
+    if (lista == NULL) return;
+
+    free(lista->elementos);
+    free(lista);
+}
