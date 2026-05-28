@@ -73,4 +73,18 @@ void travessia_pre_ordem(no_arvore_t *raiz);
 void travessia_emordem(no_arvore_t *raiz);
 void travessia_posordem(no_arvore_t *raiz);
 
+/* == ARVORE AVL == */
+typedef  struct noavl noavl_t;
+noavl_t *criar_noavl(int dado);
+int altura_avl(noavl_t * raiz);
+int fator_balanceamento_avl(noavl_t * raiz);
+noavl_t* remover_noavl(noavl_t *raiz);
+noavl_t* adicionar_noavl(noavl_t *raiz, int dado);
+noavl_t* rotacao_esquerda(noavl_t* v);
+noavl_t* rotacao_direita(noavl_t* v);
+noavl_t* rotacao_dupla_esquerda(noavl_t* v);
+noavl_t* rotacao_direita_dupla(noavl_t* v);
+noavl_t* balancear(noavl_t* v);
+
+
 #endif
