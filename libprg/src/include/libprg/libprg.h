@@ -78,7 +78,7 @@ typedef  struct noavl noavl_t;
 noavl_t *criar_noavl(int dado);
 int altura_avl(noavl_t * raiz);
 int fator_balanceamento_avl(noavl_t * raiz);
-noavl_t* remover_noavl(noavl_t *raiz);
+noavl_t* remover_noavl(noavl_t *raiz, int dado);
 noavl_t* adicionar_noavl(noavl_t *raiz, int dado);
 noavl_t* rotacao_esquerda(noavl_t* v);
 noavl_t* rotacao_direita(noavl_t* v);
