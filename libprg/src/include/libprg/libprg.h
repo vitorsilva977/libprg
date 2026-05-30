@@ -30,7 +30,12 @@ int remover(lista_t *lista);
 int busca_linear(lista_t *lista, int elementos);
 int alterar(lista_t *lista, int elementoAntigo, int elementoNovo);
 int ordenar(lista_t *lista);
-
+int busca_binaria(lista_t *lista, int elemento);
+lista_t *combinar(lista_t *a, lista_t *b);
+int obter_elemento(lista_t *lista, int indice);
+int primeiro_elemento(lista_t *lista);
+int tamanho_lista(lista_t *lista);
+void destruir(lista_t *lista);
 
 /*   == LISTA_ENCADEADA == */
 typedef struct no no_t;

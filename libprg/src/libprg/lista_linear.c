@@ -12,7 +12,7 @@ typedef struct lista {
     int tamanho;
     int capacidade;
     bool ordenada;
-} lista_t;
+} lista_linear_t;
 
 lista_t *criar_lista(bool ordenada) {
     lista_t *lista = malloc(sizeof(lista_t));
@@ -41,7 +41,21 @@ int remover(lista_t *lista) {
     lista->tamanho = lista->tamanho - 1;
     return true;
 }
+int primeiro_elemento(lista_t *lista) {
 
+    if (lista == NULL || lista->tamanho == 0)
+        return -1;
+
+    return lista->elementos[0];
+}
+
+int tamanho_lista(lista_t *lista) {
+
+    if (lista == NULL)
+        return 0;
+
+    return lista->tamanho;
+}
 int busca_linear(lista_t *lista, int elementos) {
     if (lista->ordenada) {
         for (int i = 0; i < lista->tamanho; i++) {
@@ -122,6 +136,17 @@ int ordenar(lista_t *lista) {
         }
     }
     return 1;
+}
+
+int obter_elemento(lista_t *lista, int indice) {
+
+    if (lista == NULL)
+        return -1;
+
+    if (indice < 0 || indice >= lista->tamanho)
+        return -1;
+
+    return lista->elementos[indice];
 }
 
 lista_t *combinar(lista_t *a, lista_t *b) {
