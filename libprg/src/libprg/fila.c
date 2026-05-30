@@ -26,7 +26,8 @@ fila_t* criar_fila(int capacidade) {
 }
 void enfileirar_fila(fila_t* fila, int valor) {
 
-    if (fila->tamanho >= fila->capacidade) exit(EXIT_FAILURE);
+    if (cheia_fila(fila))
+        return;
 
     fila->elementos[fila->fim] = valor;
     fila->fim = (fila->fim + 1) % fila->capacidade;
@@ -34,10 +35,8 @@ void enfileirar_fila(fila_t* fila, int valor) {
 }
 
 int desenfileirar_fila(fila_t* fila) {
-    if (fila->tamanho == 0) {
-        printf("Erro: Fila vazia(underflow)");
-        exit(EXIT_FAILURE);
-    }
+    if (vazia_fila(fila))
+        return -1;
 
     int valor = fila->elementos[fila->inicio];
     fila->inicio = (fila->inicio + 1) % fila->capacidade;
@@ -45,33 +44,46 @@ int desenfileirar_fila(fila_t* fila) {
 
     return valor;
 }
+
 int inicio_fila(fila_t* fila) {
-    if (vazia_fila(fila)) exit(EXIT_FAILURE);
-    int inicio = fila->elementos[fila->inicio];
-  return inicio;
 
+    if (fila == NULL || vazia_fila(fila))
+        return -1;
 
+    return fila->elementos[fila->inicio];
 }
+
 int fim_fila(fila_t* fila) {
- int fim_corrigido = fila->fim - 1;
-    if (fim_corrigido < 0) fim_corrigido = fila->capacidade - 1;
+
+    if (vazia_fila(fila))
+        return -1;
+
+    int fim_corrigido = fila->fim - 1;
+    if (fim_corrigido < 0)
+        fim_corrigido = fila->capacidade - 1;
+
     return fila->elementos[fim_corrigido];
 }
 
 int vazia_fila(fila_t* fila) {
-    if ( fila->tamanho == 0) return 1;
+    return fila->tamanho == 0;
 }
+
 int tamanho_fila(fila_t* fila) {
     int tamanho_fila = fila->tamanho;
     return tamanho_fila;
 }
 int cheia_fila(fila_t* fila) {
-    if ( fila->tamanho == fila->capacidade) return 1;
+    return fila->tamanho == fila->capacidade;
 }
 
 int destruir_fila(fila_t* fila) {
+
+    if (fila == NULL)
+        return 0;
+
     free(fila->elementos);
     free(fila);
 
-    return 0;
+    return 1;
 }
