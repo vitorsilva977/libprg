@@ -60,6 +60,8 @@ void *destruir_encadeada_dupla(nod_t **inicio, int dado);
 
 /*  == ALGORITMOS DE ORDENAÇÃO == */
 int *bubble_sort(int *vetor, int tamanho);
+int *selection_sort(int *vetor, int tamanho);
+int *insertion_sort(int *vetor, int tamanho);
 int *merge_sort(int *vetor, int esquerda, int direita);
 int *merge(int *veitor, int esquerda, int meio, int direita);
 int particiona(int *vetor, int inicio, int fim);

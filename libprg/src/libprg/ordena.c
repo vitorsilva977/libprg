@@ -15,18 +15,44 @@ int *bubble_sort(int *vetor, int tamanho) {
 }
 
 
-int *insertion_sort(int *vetor) {
-    int i;
-    int n;
-    int j;
-    for (i = 1; i <= n - 1; i++) {
+int *insertion_sort(int *vetor, int tamanho) {
+
+    for (int i = 1; i < tamanho; i++) {
+
         int chave = vetor[i];
-        j = i + 1;
-        while (j >= 0);
+        int j = i - 1;
+
+        while (j >= 0 && vetor[j] > chave) {
+            vetor[j + 1] = vetor[j];
+            j--;
+        }
+
+        vetor[j + 1] = chave;
     }
+
+    return vetor;
 }
 
-//selection_sort
+int *selection_sort(int *vetor, int tamanho) {
+
+    for (int i = 0; i < tamanho - 1; i++) {
+
+        int menor = i;
+
+        for (int j = i + 1; j < tamanho; j++) {
+            if (vetor[j] < vetor[menor]) {
+                menor = j;
+            }
+        }
+
+        int aux = vetor[i];
+        vetor[i] = vetor[menor];
+        vetor[menor] = aux;
+    }
+
+    return vetor;
+}
+
 int *merge_sort(int *vetor, int esquerda, int direita) {
     if (esquerda < direita) {
         int meio = esquerda + (direita - esquerda) / 2;
