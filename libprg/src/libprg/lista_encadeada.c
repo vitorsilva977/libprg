@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stdio.h>
 #include "libprg/libprg.h"
 
 typedef struct no {
@@ -20,7 +21,7 @@ no_t* criar_no(int dado) {
     return no;
 }
 
-lista_encadeada_t* criar_lista_encadeada(bool* ordenada) {
+lista_encadeada_t *criar_lista_encadeada(bool ordenada) {
     lista_encadeada_t* lista = malloc(sizeof(lista_encadeada_t));
     lista->inicio = NULL;
     lista->ordenada = ordenada;
@@ -32,6 +33,16 @@ void inserir_encadeada(lista_encadeada_t* lista, int dado) {
     novo->proximo = lista->inicio;
     lista->inicio = novo;
 }
+
+int primeiro_encadeada(lista_encadeada_t *lista) {
+
+    if (lista == NULL || lista->inicio == NULL)
+        return -1;
+
+    return lista->inicio->dado;
+}
+
+
 bool remover_encadeada(lista_encadeada_t* lista, int dado) {
 
     no_t* atual = lista->inicio;
@@ -62,6 +73,31 @@ no_t* buscar_encadeada(lista_encadeada_t* lista, int dado){
    return NULL;
 }
 
+int tamanho_encadeada(lista_encadeada_t *lista) {
+
+    int tamanho = 0;
+    no_t *atual = lista->inicio;
+
+    while (atual != NULL) {
+        tamanho++;
+        atual = atual->proximo;
+    }
+
+    return tamanho;
+}
+
+void imprimir_encadeada(lista_encadeada_t *lista) {
+
+    no_t *atual = lista->inicio;
+
+    while (atual != NULL) {
+        printf("%d ", atual->dado);
+        atual = atual->proximo;
+    }
+
+    printf("\n");
+}
+
 void destruir_encadeada(lista_encadeada_t* lista) {
 
     no_t* atual = lista->inicio;
@@ -71,4 +107,5 @@ void destruir_encadeada(lista_encadeada_t* lista) {
         free(atual);
         atual = proximo;
     }
+    free(lista);
 }
