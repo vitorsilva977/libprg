@@ -41,11 +41,16 @@ void destruir(lista_t *lista);
 typedef struct no no_t;
 typedef struct lista_encadeada lista_encadeada_t;
 no_t *criar_no(int dado);
-lista_encadeada_t *criar_lista_encadeada(bool *ordenada);
+lista_encadeada_t *criar_lista_encadeada(bool ordenada);
 void inserir_encadeada(lista_encadeada_t *lista, int dado);
 bool remover_encadeada(lista_encadeada_t *lista, int dado);
+int tamanho_encadeada(lista_encadeada_t *lista);
+int primeiro_encadeada(lista_encadeada_t *lista);
 no_t *buscar_encadeada(lista_encadeada_t *lista, int dado);
+
+void imprimir_encadeada(lista_encadeada_t *lista);
 void destruir_encadeada(lista_encadeada_t *lista);
+
 
 /* == LISTA_ENCADEADA_DUPLA == */
 typedef struct nod nod_t;
