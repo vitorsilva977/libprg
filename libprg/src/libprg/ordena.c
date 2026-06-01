@@ -60,6 +60,7 @@ int *merge_sort(int *vetor, int esquerda, int direita) {
         merge_sort(vetor, meio + 1, direita);
         merge_sort(vetor, esquerda, meio);
     }
+    return vetor;
 }
 
 int *merge(int *vetor, int esquerda, int meio, int direita) {
