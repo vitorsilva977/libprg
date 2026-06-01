@@ -70,8 +70,10 @@ int *quicksort(int *vetor, int inicio, int fim);
 /*   == TABELA DE DISPERÇÃO ==   */
 typedef struct noh noh_t;
 typedef struct dicionario dicionario_t;
+dicionario_t *criar_dicionario(int m);
 int inserir_hash(dicionario_t *d, char *chave, int valor);
 int buscar_hash(dicionario_t *d, char *chave);
+void imprimir_hash(dicionario_t *d);
 void remover_hash(dicionario_t *d, char *chave);
 void liberar_dicionario(dicionario_t *d);
 

@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <libprg/libprg.h>
@@ -18,7 +19,7 @@ dicionario_t *criar_dicionario(int m) {
     if (m < 1) return NULL;
 
     d = malloc(sizeof(dicionario_t));
-    d->vetor = malloc(sizeof(noh_t *) * m);
+    d->vetor = calloc(m, sizeof(noh_t *));
     d->tamanho = m;
 
     return d;
@@ -46,8 +47,7 @@ int inserir_hash(dicionario_t *d, char *chave, int valor) {
 
     no->valor = valor;
 
-    no->proximo = NULL;
-
+    no->proximo = d->vetor[indice];
     d->vetor[indice] = no;
     return 0;
 }
@@ -70,6 +70,22 @@ int buscar_hash(dicionario_t *d, char *chave) {
     return -1;
 }
 
+void imprimir_hash(dicionario_t *d) {
+
+    for (int i = 0; i < d->tamanho; i++) {
+
+        noh_t *atual = d->vetor[i];
+
+        while (atual != NULL) {
+
+            printf("%s -> %d\n",
+                   atual->chave,
+                   atual->valor);
+
+            atual = atual->proximo;
+        }
+    }
+}
 
 void remover_hash(dicionario_t *d, char *chave) {
 
