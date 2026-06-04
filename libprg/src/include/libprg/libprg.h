@@ -82,10 +82,14 @@ typedef struct no_arvore no_arvore_t;
 no_arvore_t *criar_no_arvore(int dado);
 no_arvore_t *adicionar_no_arvore(no_arvore_t *raiz, int dado);
 no_arvore_t *remover_arvore(no_arvore_t *raiz, int valor);
+int maior_valor_arvore(no_arvore_t *raiz);
+int menor_valor_arvore(no_arvore_t *raiz);
+int altura_arvore(no_arvore_t *raiz);
 no_arvore_t *menor_no(no_arvore_t *no);
 void travessia_pre_ordem(no_arvore_t *raiz);
 void travessia_emordem(no_arvore_t *raiz);
 void travessia_posordem(no_arvore_t *raiz);
+void destruir_arvore(no_arvore_t *raiz);
 
 /* == ARVORE AVL == */
 typedef  struct noavl noavl_t;
