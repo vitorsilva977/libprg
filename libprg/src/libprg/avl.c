@@ -215,3 +215,73 @@ noavl_t *remover_noavl(noavl_t *raiz, int dado) {
 
     return balancear(raiz);
 }
+
+void pre_ordem_avl(noavl_t *raiz) {
+
+    if (raiz == NULL)
+        return;
+
+    printf("%d ", raiz->dado);
+
+    pre_ordem_avl(raiz->esquerda);
+    pre_ordem_avl(raiz->direita);
+}
+
+void em_ordem_avl(noavl_t *raiz) {
+
+    if (raiz == NULL)
+        return;
+
+    em_ordem_avl(raiz->esquerda);
+
+    printf("%d ", raiz->dado);
+
+    em_ordem_avl(raiz->direita);
+}
+
+void pos_ordem_avl(noavl_t *raiz) {
+
+    if (raiz == NULL)
+        return;
+
+    pos_ordem_avl(raiz->esquerda);
+    pos_ordem_avl(raiz->direita);
+
+    printf("%d ", raiz->dado);
+}
+
+void largura_avl(noavl_t *raiz) {
+
+    if (raiz == NULL)
+        return;
+
+    noavl_t *fila[100];
+    int inicio = 0;
+    int fim = 0;
+
+    fila[fim++] = raiz;
+
+    while (inicio < fim) {
+
+        noavl_t *atual = fila[inicio++];
+
+        printf("%d ", atual->dado);
+
+        if (atual->esquerda != NULL)
+            fila[fim++] = atual->esquerda;
+
+        if (atual->direita != NULL)
+            fila[fim++] = atual->direita;
+    }
+}
+
+void destruir_avl(noavl_t *raiz) {
+
+    if (raiz == NULL)
+        return;
+
+    destruir_avl(raiz->esquerda);
+    destruir_avl(raiz->direita);
+
+    free(raiz);
+}

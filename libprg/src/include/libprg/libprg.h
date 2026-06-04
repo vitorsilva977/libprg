@@ -103,6 +103,11 @@ noavl_t* rotacao_direita(noavl_t* v);
 noavl_t* rotacao_dupla_esquerda(noavl_t* v);
 noavl_t* rotacao_direita_dupla(noavl_t* v);
 noavl_t* balancear(noavl_t* v);
+void pre_ordem_avl(noavl_t *raiz);
+void em_ordem_avl(noavl_t *raiz);
+void pos_ordem_avl(noavl_t *raiz);
+void largura_avl(noavl_t *raiz);
+void destruir_avl(noavl_t *raiz);
 
 
 #endif
