@@ -42,10 +42,19 @@ int desempilhar_pilha(pilha_t* pilha) {
 
   return valor;
 }
-int tamanho_pilha(pilha_t* pilha) {
-  int n = pilha->capacidade;
-  return n;
+
+int topo_pilha(pilha_t *pilha) {
+
+  if (pilha == NULL || pilha->topo < 0)
+    return -1;
+
+  return pilha->elementos[pilha->topo];
 }
+
+int tamanho_pilha(pilha_t* pilha) {
+  return pilha->topo + 1;
+}
+
 
 int vazia_pilha(pilha_t* pilha) {
   return pilha->topo < 0;
