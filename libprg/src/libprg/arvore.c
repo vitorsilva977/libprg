@@ -2,11 +2,6 @@
 #include <stdlib.h>
 #include "libprg/libprg.h"
 
-typedef struct no_arvore {
-    int dado;
-    no_arvore_t *esquerda;
-    no_arvore_t *direita;
-} no_arvore_t;
 
 no_arvore_t *criar_no_arvore(int dado) {
     no_arvore_t *no = malloc(sizeof(no_arvore_t));

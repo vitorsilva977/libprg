@@ -79,7 +79,11 @@ void remover_hash(dicionario_t *d, char *chave);
 void liberar_dicionario(dicionario_t *d);
 
 /*  == ARVORE == */
-typedef struct no_arvore no_arvore_t;
+typedef struct no_arvore {
+    int dado;
+    struct no_arvore *esquerda;
+    struct no_arvore *direita;
+} no_arvore_t;
 no_arvore_t *criar_no_arvore(int dado);
 no_arvore_t *adicionar_no_arvore(no_arvore_t *raiz, int dado);
 no_arvore_t *remover_arvore(no_arvore_t *raiz, int valor);
